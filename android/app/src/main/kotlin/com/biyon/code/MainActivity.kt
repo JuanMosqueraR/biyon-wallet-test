@@ -1,4 +1,4 @@
-package com.biyon.code
+package com.jm.wallet
 
 import io.flutter.embedding.android.FlutterActivity
 

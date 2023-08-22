@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.biyon.code">
+    package="com.jm.wallet">
    <application
         android:label="code"
         android:name="${applicationName}"
