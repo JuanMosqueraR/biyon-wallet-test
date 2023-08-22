@@ -1,0 +1,23 @@
+{
+  "create_account": "Crear cuenta",
+  "already_account": "¿Ya tienes una cuenta? ",
+  "sign_in": "Inicia sesión",
+
+  "sign_up_create_account_step_of": "Paso 1 de 3",
+  "sign_up_create_your_account": "Crea tu cuenta",
+  "sign_up_using": "Registrate mediante",
+  "sign_up_continue_with_email": "Continuar con e-mail",
+
+  "sign_up_create_your_account_title": "Crea\ntu cuenta",
+  "sign_up_full_name": "Nombre completo",
+  "sign_up_full_name_hint": "Escribe tu nombre completo",
+  "sign_up_email": "Correo electrónico",
+  "sign_up_email_hint": "E-mail@hola.com",
+  "sign_up_password": "Contraseña",
+  "sign_up_password_hint": "Mínimo 8 caracteres",
+  "sign_up_i_have_read_and_accept_privacy_policy_1": "He leído y acepto la ",
+  "sign_up_i_have_read_and_accept_privacy_policy_2": "política de privacidad, ",
+  "sign_up_i_have_read_and_accept_privacy_policy_3": "los ",
+  "sign_up_i_have_read_and_accept_privacy_policy_4": "términos y condiciones ",
+  "sign_up_i_have_read_and_accept_privacy_policy_5": "de uso "
+}
