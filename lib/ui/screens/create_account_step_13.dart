@@ -1,7 +1,12 @@
+import 'package:code/data/veriff_session_request.dart';
 import 'package:code/generated/l10n.dart';
+import 'package:code/repositories/impl/veriff_repository_impl.dart';
 import 'package:code/ui/styles/button_styles.dart';
 import 'package:code/ui/styles/text_styles.dart';
+import 'package:code/ui/styles/veriff_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:veriff_flutter/veriff_flutter.dart';
 
 class CreateAccountStep13Screen extends StatefulWidget {
   @override
@@ -9,6 +14,15 @@ class CreateAccountStep13Screen extends StatefulWidget {
 }
 
 class _CreateAccountStep13State extends State<CreateAccountStep13Screen> {
+  late Configuration config;
+  late Veriff veriff;
+
+  @override
+  void initState() {
+    veriff = Veriff();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,8 +95,43 @@ class _CreateAccountStep13State extends State<CreateAccountStep13Screen> {
                 // context,
                 // MaterialPageRoute(
                 // builder: (context) => CreateAccountStep3Screen()));
+                final request = VeriffSessionRequest(
+                  verification: Verification(
+                    callback: 'https://veriff.me',
+                    // document: VeriffDocument(
+                    //   country: code,
+                    //   type: veriffProvider.type,
+                    // ),
+                    person: Person(
+                      // TODO: 24-Aug-23 replace
+                      firstName: "Juan Mosqquera",
+                    ),
+                  ),
+                );
+                await VeriffRepositoryImpl()
+                    .getSession(request)
+                    .then((veriffSession) async {
+                  if (veriffSession != null) {
+                    config = Configuration(
+                      veriffSession.verification.url,
+                      branding: VeriffTheme.veriffBranding,
+                    );
+                    try {
+                      final res = await veriff.start(config);
+                      print('VERIFF STATUS: ' + res.status.name);
+                      if (res.status == Status.done) {
+
+                        print(" DONEEEE ");
+                      }
+                    } on PlatformException {
+                      throw Exception();
+                    }
+                  } else {
+                    print('r IS NULL?');
+                  }
+                });
               },
-              child: Text(S.current.sign_up_go_to_email),
+              child: Text(S.current.continue_option),
             ),
           )
         ]));
